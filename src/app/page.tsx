@@ -9,7 +9,6 @@ export default function Login() {
       <HeaderComponents.Root>
         <HeaderComponents.Logo />
         <HeaderComponents.NavBar>
-          <HeaderComponents.Link href="/" text="Sobre o orkut" />
           <HeaderComponents.Link href="/" text="Centro de segurança" />
         </HeaderComponents.NavBar>
       </HeaderComponents.Root>

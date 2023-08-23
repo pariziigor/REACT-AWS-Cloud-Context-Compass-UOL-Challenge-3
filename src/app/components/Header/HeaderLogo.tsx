@@ -1,16 +1,12 @@
-import Image from "next/image";
-
 export default function HeaderLogo() {
   return (
     <div className="relative">
-      <Image
-        className="w-24"
-        src="https://i.imgur.com/xNrtuzV.png"
-        width={50}
-        height={50}
-        alt="Logo"
-        priority={true}
-      />
+      <h3
+        contentEditable={false}
+        className="font-extrabold text-[#ED6D25] w-24 text-4xl p-2"
+      >
+        UOLkut
+      </h3>
     </div>
   );
 }

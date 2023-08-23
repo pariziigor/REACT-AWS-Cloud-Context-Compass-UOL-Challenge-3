@@ -12,7 +12,7 @@ export default function HeaderProfileMenu() {
         alt="foto perfil"
       />
       <p className="ml-2 font-medium text-dark-10">Hello Word</p>
-      <RiArrowDownSLine className="text-4xl text-[#ED2590]" />
+      <RiArrowDownSLine className="text-4xl text-[#ED6D25]" />
     </div>
   );
 }

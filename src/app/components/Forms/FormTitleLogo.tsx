@@ -8,7 +8,7 @@ export default function FormTitleLogo({ title }: FormTitleLogoProps) {
     <div className="space-y-2 text-xl font-semibold text-brand-color">
       <Image
         className="m-auto"
-        src="https://i.imgur.com/vRPPvfA.png"
+        src="https://i.imgur.com/4Nnp92N.png"
         alt="logo-pequena"
         width={35}
         height={35}

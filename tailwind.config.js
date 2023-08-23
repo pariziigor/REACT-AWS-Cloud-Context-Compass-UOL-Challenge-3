@@ -11,7 +11,7 @@ module.exports = {
       body: "#D9E6F7",
       corT: "#484848",
       corB: "#000",
-      "brand-color": "#ED2590",
+      "brand-color": "#ED6D25",
       "dark-10": "#4b4b4b",
       "dark-20": "#b4aeAe ",
       "dark-30": "#fdfeff",
