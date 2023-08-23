@@ -21,6 +21,7 @@ interface RegisterProfileProps {
   cidade: string;
   musicas: string;
   filmes: string;
+  profissao: string;
   setUser: (user: string) => void;
   setEmail: (email: string) => void;
   setPassword: (password: string) => void;
@@ -40,6 +41,7 @@ interface RegisterProfileProps {
   setCidade: (cidadeNatal: string) => void;
   setMusicas: (musicas: string) => void;
   setFilmes: (filmes: string) => void;
+  setProfissao: (profissao: string) => void;
 }
 
 interface RegisterContextProps {
@@ -66,6 +68,7 @@ const uRegisterContext = createContext<RegisterProfileProps>({
   cidade: "",
   musicas: "",
   filmes: "",
+  profissao: "",
   setUser: () => {},
   setEmail: () => {},
   setPassword: () => {},
@@ -85,6 +88,7 @@ const uRegisterContext = createContext<RegisterProfileProps>({
   setCidade: () => {},
   setMusicas: () => {},
   setFilmes: () => {},
+  setProfissao: () => {},
 });
 
 export function RegisterContext() {
@@ -111,6 +115,7 @@ export function RegisterProvider({ children }: RegisterContextProps) {
   const [cidade, setCidade] = useState("");
   const [musicas, setMusicas] = useState("");
   const [filmes, setFilmes] = useState("");
+  const [profissao, setProfissao] = useState("");
 
   return (
     <uRegisterContext.Provider
@@ -134,6 +139,7 @@ export function RegisterProvider({ children }: RegisterContextProps) {
         cidade,
         musicas,
         filmes,
+        profissao,
         setUser,
         setEmail,
         setPassword,
@@ -153,6 +159,7 @@ export function RegisterProvider({ children }: RegisterContextProps) {
         setCidade,
         setMusicas,
         setFilmes,
+        setProfissao,
       }}
     >
       {children}
