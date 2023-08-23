@@ -3,24 +3,13 @@ import { RegisterContext } from "../contexts/RegisterContext";
 
 export function UseRegister(router: any) {
   const {
-    user,
     email,
     aniversario,
     pais,
-    estado,
     cidade,
     password,
-    passwordConfirm,
-    quemSouEu,
     relacionamento,
-    filhos,
-    bio,
-    interessesNoOrkut,
-    musicas,
-    filmes,
-    sexo,
-    fumo,
-    bebo,
+    profissao,
   } = RegisterContext();
 
   const [registrationSuccess, setRegistrationSuccess] = useState<
@@ -32,23 +21,13 @@ export function UseRegister(router: any) {
 
   const registerUser = async () => {
     const dataToSend = {
-      user,
       email,
       aniversario,
       pais,
-      estado,
       cidade,
       password,
-      quemSouEu,
       relacionamento,
-      filhos,
-      bio,
-      interessesNoOrkut,
-      musicas,
-      filmes,
-      sexo,
-      fumo,
-      bebo,
+      profissao,
     };
 
     try {
