@@ -17,6 +17,10 @@ module.exports = {
         source: "/Profile",
         destination: "/pages/profile",
       },
+      {
+        source: "/InfoPassword",
+        destination: "/pages/password",
+      },
     ];
   },
   images: {

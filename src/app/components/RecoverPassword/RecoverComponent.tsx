@@ -15,6 +15,11 @@ export default function RecoverComponent() {
     router.push("/");
   };
 
+  const handleInfo = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    router.push("/pages/password");
+  };
+
   return (
     <div className="flex h-[82.5vh] w-full items-center justify-center gap-6 p-10">
       <BannerComponents.Root>
@@ -35,7 +40,7 @@ export default function RecoverComponent() {
           <FormComponents.Button
             className="w-full bg-brand-color px-4"
             text="Enviar código"
-            onClick={handleRecover}
+            onClick={handleInfo}
           />
           <div className="relative flex h-[450px] w-[320px] flex-col items-center gap-2 rounded-2xl bg-dark-30 px-4 py-8">
             <FormComponents.Recover href="/" text="Lembrou sua Senha?" />
