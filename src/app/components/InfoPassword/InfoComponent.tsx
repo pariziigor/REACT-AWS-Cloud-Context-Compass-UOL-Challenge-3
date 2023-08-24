@@ -13,7 +13,26 @@ export default function PasswordComponent() {
   const { password, setPassword } = RegisterContext();
   console.log(password);
 
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const isFormValid = () => {
+    return (
+      codigo.trim() !== "" &&
+      password.trim() !== "" &&
+      confirmPassword.trim() !== ""
+    );
+  };
+
   const handlePassword = (e: MouseEvent<HTMLButtonElement>) => {
+    if (isFormValid()) {
+      e.preventDefault();
+      router.push("/");
+    } else {
+      setErrorMessage("Por favor, preencha todos os campos.");
+    }
+  };
+
+  const handleRecover = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     router.push("/");
   };
@@ -51,6 +70,9 @@ export default function PasswordComponent() {
             setInputValue={(event) => setConfirmPassword(event.target.value)}
             required
           />
+          {errorMessage && (
+            <p className="h-0 text-xs text-support-04">{errorMessage}</p>
+          )}
           <FormComponents.Button
             className="w-full bg-brand-color px-4"
             text="Salvar"
@@ -61,7 +83,7 @@ export default function PasswordComponent() {
             <FormComponents.RecoverButton
               className="className bg-input-color"
               text="Entrar com as credenciais"
-              onClick={handlePassword}
+              onClick={handleRecover}
             />
           </div>
         </div>
