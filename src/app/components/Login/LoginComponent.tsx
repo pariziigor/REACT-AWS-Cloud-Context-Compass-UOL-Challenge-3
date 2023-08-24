@@ -28,7 +28,7 @@ export default function LoginComponent() {
         <BannerComponents.Text />
       </BannerComponents.Root>
       <FormComponents.Root onSubmit={handleLogin}>
-        <FormComponents.Logo title="Acesse o Orkut" />
+        <FormComponents.Logo title="Acesse o UOLkut" />
         <FormComponents.Input
           type="email"
           placeholder="E-mail"
@@ -50,12 +50,12 @@ export default function LoginComponent() {
           text="Entrar na conta"
           type="submit"
         />
-        <FormComponents.Button
-          className="className bg-input-color"
-          text="Criar uma conta"
-          onClick={handleRegister}
-        />
-        <FormComponents.Link href="/" text="Esqueci a minha senha" />
+        <FormComponents.RecoverButton
+            className="className bg-input-color"
+            text="Criar conta"
+            onClick={handleRegister}
+          />
+        <FormComponents.Link href="/pages/recover" text="Esqueci a minha senha" />
       </FormComponents.Root>
     </div>
   );

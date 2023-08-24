@@ -5,7 +5,7 @@ interface FormButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className: string;
 }
 
-export default function FormButton({
+export default function RecoverButton({
   text,
   className,
   onClick,
@@ -14,7 +14,7 @@ export default function FormButton({
     <>
       <button
         className={`w-full rounded-md py-2 text-center font-small ${className}`}
-        style={{ color: '#FFF' }}
+        style={{ color: '#ED6D25' }}
         onClick={onClick}
       >
         {text}

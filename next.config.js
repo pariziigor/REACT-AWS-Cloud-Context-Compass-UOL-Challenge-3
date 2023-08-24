@@ -10,8 +10,8 @@ module.exports = {
         destination: "/pages/register",
       },
       {
-        source: "/RegisterInfos",
-        destination: "/pages/register/registerInfos",
+        source: "/RecoverPassword",
+        destination: "/pages/recover",
       },
       {
         source: "/Profile",
