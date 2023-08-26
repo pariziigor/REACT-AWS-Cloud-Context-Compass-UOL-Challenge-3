@@ -1,24 +1,14 @@
 {
   "users": [
     {
-      "email": "sandraparizi57@gmail.com",
-      "aniversario": "teste",
-      "pais": "teste",
-      "cidade": "teste",
+      "email": "parizi57@gmail.com",
+      "aniversario": "28/02/2003",
+      "pais": "Brasil",
+      "cidade": "São Paulo",
       "password": "teste",
       "relacionamento": "opcao2",
-      "profissao": "teste",
-      "id": 1
-    },
-    {
-      "email": "igorparizi@hotmail.com",
-      "aniversario": "teste",
-      "pais": "teste",
-      "cidade": "teste",
-      "password": "testeteste",
-      "relacionamento": "opcao2",
-      "profissao": "teste",
-      "id": 2
+      "profissao": "Estudante",
+      "id": 3
     }
   ],
   "friends": [
