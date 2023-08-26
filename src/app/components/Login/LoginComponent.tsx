@@ -4,6 +4,8 @@ import { useRouter } from "next/navigation";
 import { FormComponents } from "../Forms/Index";
 import { BannerComponents } from "../Banner";
 import UserLoginForm from "@/app/hooks/UserLogin";
+import firebase from "@/app/firebaseConfig";
+import "firebase/auth";
 
 export default function LoginComponent() {
   const router = useRouter();
@@ -15,12 +17,12 @@ export default function LoginComponent() {
     handleSetPassword,
     handleLogin,
   } = UserLoginForm(router);
-
+  
   const handleRegister = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     router.push("/register");
   };
-
+  
   return (
     <div className="flex h-[82.5vh] w-full items-center justify-center gap-6 p-10">
       <BannerComponents.Root>
