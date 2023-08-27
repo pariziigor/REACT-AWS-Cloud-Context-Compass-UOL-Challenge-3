@@ -4,8 +4,6 @@ import { useRouter } from "next/navigation";
 import { FormComponents } from "../Forms/Index";
 import { BannerComponents } from "../Banner";
 import UserLoginForm from "@/app/hooks/UserLogin";
-import firebase from "@/app/firebaseConfig";
-import "firebase/auth";
 
 export default function LoginComponent() {
   const router = useRouter();
