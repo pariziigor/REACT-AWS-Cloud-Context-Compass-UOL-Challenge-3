@@ -1,10 +1,17 @@
 "use client";
+import "firebase/compat/auth";
 import { FormComponents } from "../Forms/Index";
 import { useRouter } from "next/navigation";
 import { RegisterContext } from "@/app/contexts/RegisterContext";
 import { UseRegister } from "@/app/hooks/userRegister";
 import { BannerComponents } from "../Banner";
 import { useState } from "react";
+import firebase from "firebase/compat/app";
+import firebaseConfig from "@/app/FireBaseConfig";
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 export default function RegisterComponent() {
   const router = useRouter();
@@ -36,13 +43,21 @@ export default function RegisterComponent() {
 
   const { registerUser } = UseRegister(router);
 
-  const handleRegister: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+  const handleRegister: React.MouseEventHandler<HTMLButtonElement> = async (e) => {
     if (isFormValid()) {
       e.preventDefault();
-      registerUser();
-      router.push("/");
+
+      try {
+        const auth = firebase.auth();
+        await auth.createUserWithEmailAndPassword(email, password);
+        registerUser();
+        router.push("/");
+      } catch (error: any) {
+        // Handle registration error
+        setErrorMessage("Error during registration: " + error.message);
+      }
     } else {
-      setErrorMessage("Por favor, preencha todos os campos.");
+      setErrorMessage("Preencha todos os campos");
     }
   };
 

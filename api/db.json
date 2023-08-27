@@ -9,6 +9,16 @@
       "relacionamento": "opcao1",
       "profissao": "Estudante",
       "id": 1
+    },
+    {
+      "email": "sandraparizi57@gmail.com",
+      "aniversario": "28/02/2003",
+      "pais": "Brasil",
+      "cidade": "São Carlos",
+      "password": "bpparizi203",
+      "relacionamento": "opcao2",
+      "profissao": "Empregada",
+      "id": 2
     }
   ],
   "friends": [
