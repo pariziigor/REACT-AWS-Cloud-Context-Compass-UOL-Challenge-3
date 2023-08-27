@@ -1,4 +1,5 @@
 "use client";
+import "firebase/compat/auth";
 import { MouseEvent, FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { FormComponents } from "../Forms/Index";
@@ -7,7 +8,12 @@ import firebase from "firebase/compat/app";
 import UserLoginForm from "@/app/hooks/UserLogin";
 import firebaseConfig from "@/app/FireBaseConfig";
 
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
 export default function LoginComponent() {
+  
   const router = useRouter();
   
   const {
@@ -17,14 +23,15 @@ export default function LoginComponent() {
     handleSetPassword
   } = UserLoginForm(router);
 
-  const [errorMessage, setErrorMessage] = useState<string>(""); // Explicitly set the type
+  const [errorMessage, setErrorMessage] = useState<string>("Usuário não encontrado!"); // Explicitly set the type
 
   const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
     try {
-      await firebase.auth().signInWithEmailAndPassword(email, password);
-      // Successful login, you can redirect the user to a different page here
+      const auth = firebase.auth();
+      await auth.signInWithEmailAndPassword(email, password);
+      router.push("/profile");
     } catch (error: any) { // Explicitly set the type as 'any' if TypeScript still has issues
       setErrorMessage(error.message);
     }

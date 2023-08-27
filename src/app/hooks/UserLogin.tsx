@@ -1,6 +1,6 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import { useUserContext } from "../contexts/UserContex";
-import firebase from "firebase/compat/app";
+
 interface User {
   id: number;
   userID: string;

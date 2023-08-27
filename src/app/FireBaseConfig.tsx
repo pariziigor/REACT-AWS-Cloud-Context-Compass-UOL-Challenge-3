@@ -2,6 +2,8 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import 'firebase/auth';
+import "firebase/compat/auth";
+import firebase from "firebase/compat/app";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDMwfCGLzYu9NTCqSFc6pUGG9rZh7ka3g0",
@@ -13,7 +15,12 @@ const firebaseConfig = {
   measurementId: "G-0JDLCFTT74"
 };
 
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+
 export default firebaseConfig;
