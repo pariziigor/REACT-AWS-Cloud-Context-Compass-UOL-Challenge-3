@@ -1,26 +1,40 @@
 "use client";
-import { MouseEvent } from "react";
+import { MouseEvent, FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { FormComponents } from "../Forms/Index";
 import { BannerComponents } from "../Banner";
+import firebase from "firebase/compat/app";
 import UserLoginForm from "@/app/hooks/UserLogin";
+import firebaseConfig from "@/app/FireBaseConfig";
 
 export default function LoginComponent() {
   const router = useRouter();
+  
   const {
     email,
     password,
-    errorMessage,
     handleSetEmail,
-    handleSetPassword,
-    handleLogin,
+    handleSetPassword
   } = UserLoginForm(router);
-  
+
+  const [errorMessage, setErrorMessage] = useState<string>(""); // Explicitly set the type
+
+  const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    try {
+      await firebase.auth().signInWithEmailAndPassword(email, password);
+      // Successful login, you can redirect the user to a different page here
+    } catch (error: any) { // Explicitly set the type as 'any' if TypeScript still has issues
+      setErrorMessage(error.message);
+    }
+  };
+
   const handleRegister = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     router.push("/register");
   };
-  
+
   return (
     <div className="flex h-[82.5vh] w-full items-center justify-center gap-6 p-10">
       <BannerComponents.Root>
