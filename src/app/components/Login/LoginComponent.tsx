@@ -23,7 +23,7 @@ export default function LoginComponent() {
     handleSetPassword
   } = UserLoginForm(router);
 
-  const [errorMessage, setErrorMessage] = useState<string>("Usuário não encontrado!"); 
+  const [errorMessage, setErrorMessage] = useState<string>(""); 
   const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     

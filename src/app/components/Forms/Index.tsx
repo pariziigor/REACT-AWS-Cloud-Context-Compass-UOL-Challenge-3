@@ -3,6 +3,7 @@ import FormCheckBox from "./FormCheckBox";
 import FormInput from "./FormInput";
 import FormLink from "./FormLink";
 import FormRoot from "./FormRoot";
+import FormTitleEdit from "./FormTitleEdit";
 import FormTitleLogo from "./FormTitleLogo";
 import RecoverButton from "./RecoverButton";
 import RecoverLink from "./RecoverLink";
@@ -16,4 +17,5 @@ export const FormComponents = {
   Button: FormButton,
   Recover: RecoverLink,
   RecoverButton: RecoverButton,
+  EditTitle: FormTitleEdit,
 };

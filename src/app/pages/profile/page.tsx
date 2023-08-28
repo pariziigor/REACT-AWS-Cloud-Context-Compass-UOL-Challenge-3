@@ -3,8 +3,12 @@ import { HeaderComponents } from "@/app/components/Header";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { FormComponents } from "@/app/components/Forms/Index";
+import { MouseEvent } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Profile() {
+  const router = useRouter();
   interface Dado {
     id: number;
     relacionamento: string;
@@ -18,14 +22,19 @@ export default function Profile() {
 
   const [data, setData] = useState<Dado[]>([]);
 
-  type RelacionamentoOption = 'opcao1' | 'opcao2' | 'opcao3' | 'opcao4' | 'opcao5';
+  type RelacionamentoOption =
+    | "opcao1"
+    | "opcao2"
+    | "opcao3"
+    | "opcao4"
+    | "opcao5";
 
   const relacionamentoTextMap: Record<RelacionamentoOption, string> = {
-    opcao1: 'Solteiro',
-    opcao2: 'Casado',
-    opcao3: 'Divorciado',
-    opcao4: 'Namorando',
-    opcao5: 'Preocupado',
+    opcao1: "Solteiro",
+    opcao2: "Casado",
+    opcao3: "Divorciado",
+    opcao4: "Namorando",
+    opcao5: "Preocupado",
   };
 
   useEffect(() => {
@@ -38,6 +47,11 @@ export default function Profile() {
         console.error("Erro ao obter dados:", error);
       });
   }, []);
+
+  const handleEdit = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    router.push("/pages/edit");
+  };
 
   return (
     <div>
@@ -70,9 +84,11 @@ export default function Profile() {
             <p>Solteiro, Brasil</p>
           </div>
           <div className="flex w-64 items-center justify-center rounded-xl bg-dark-30 p-6">
-            <button className="text-1xl font-semibold text-brand-color">
-              Editar meu perfil
-            </button>
+            <FormComponents.RecoverButton
+              className="text-1xl font-semibold text-brand-color"
+              text="Editar meu perfil"
+              onClick={handleEdit}
+            />
           </div>
         </section>
         <section className="space-y-5 rounded-xl bg-dark-30 p-10">
@@ -166,7 +182,11 @@ export default function Profile() {
               <div>
                 <p className="mb-4">
                   <span className="mr-4 text-dark-20">Relacionamento:</span>
-                  {relacionamentoTextMap[data[0].relacionamento as RelacionamentoOption]}
+                  {
+                    relacionamentoTextMap[
+                      data[0].relacionamento as RelacionamentoOption
+                    ]
+                  }
                 </p>
                 <p className="mb-4">
                   <span className="mr-4 text-dark-20">Aniversário:</span>

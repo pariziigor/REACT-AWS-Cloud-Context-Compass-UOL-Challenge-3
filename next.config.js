@@ -21,6 +21,10 @@ module.exports = {
         source: "/InfoPassword",
         destination: "/pages/password",
       },
+      {
+        source: "/Edit",
+        destination: "/pages/edit",
+      },
     ];
   },
   images: {
