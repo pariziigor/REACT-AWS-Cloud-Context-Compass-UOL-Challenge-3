@@ -53,8 +53,7 @@ export default function RegisterComponent() {
         registerUser();
         router.push("/");
       } catch (error: any) {
-        // Handle registration error
-        setErrorMessage("Error during registration: " + error.message);
+        setErrorMessage("Erro: " + error.message);
       }
     } else {
       setErrorMessage("Preencha todos os campos");

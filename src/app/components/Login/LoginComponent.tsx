@@ -23,8 +23,7 @@ export default function LoginComponent() {
     handleSetPassword
   } = UserLoginForm(router);
 
-  const [errorMessage, setErrorMessage] = useState<string>("Usuário não encontrado!"); // Explicitly set the type
-
+  const [errorMessage, setErrorMessage] = useState<string>("Usuário não encontrado!"); 
   const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
@@ -32,7 +31,7 @@ export default function LoginComponent() {
       const auth = firebase.auth();
       await auth.signInWithEmailAndPassword(email, password);
       router.push("/profile");
-    } catch (error: any) { // Explicitly set the type as 'any' if TypeScript still has issues
+    } catch (error: any) { 
       setErrorMessage(error.message);
     }
   };

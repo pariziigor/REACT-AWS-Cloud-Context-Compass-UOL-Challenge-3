@@ -14,7 +14,6 @@ export default function Profile() {
     moro: string;
     pais: string;
     cidade: string;
-    // Outros campos, se houver
   }
 
   const [data, setData] = useState<Dado[]>([]);
